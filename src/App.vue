@@ -7,7 +7,7 @@
       <router-link to="/ratings" class="tab-item" tab="div">评论</router-link>
       <router-link to="/seller" class="tab-item" tab="div">商家</router-link>
     </div>
-    <router-view></router-view>
+    <router-view :seller="seller"></router-view>
   </div>
 </template>
 
@@ -25,7 +25,6 @@ export default {
   created () {
     this.$axios.get('/api/seller').then((response) => {
       this.seller = response.data.data
-      console.log(this.seller)
     }).catch((err) => {
       console.log(err)
     })
